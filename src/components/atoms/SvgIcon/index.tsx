@@ -12,7 +12,7 @@ import * as Icons from "./icons";
 type SvgIconProps = {
   name: keyof typeof Icons;
   size?: number;
-  color: string;
+  color?: string;
 };
 
 function SvgIcon({ name, size = 30, color = "#000" }: SvgIconProps) {
