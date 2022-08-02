@@ -34,7 +34,7 @@ const styles = css`
   }
   html,
   body {
-    height: 100%;
+    min-height: 100%;
   }
   #__next {
     height: 100%;
