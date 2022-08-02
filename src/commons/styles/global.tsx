@@ -36,6 +36,9 @@ const styles = css`
   body {
     height: 100%;
   }
+  #__next {
+    height: 100%;
+  }
   img,
   picture,
   video,
