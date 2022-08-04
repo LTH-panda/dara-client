@@ -1,12 +1,13 @@
 import styled from "@emotion/styled";
 
 export const VideoBlock = styled.div`
-  width: 20%;
+  width: 23%;
 `;
 
 export const VideoSection = styled.div`
-  height: 8.5rem;
+  height: 9.3rem;
   background-color: #ddd;
+  margin-bottom: 0.7rem;
 `;
 
 export const TitleSection = styled.div`

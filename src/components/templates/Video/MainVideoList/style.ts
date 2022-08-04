@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 
 export const VideoListContainer = styled.div`
   width: 100%;
-  margin-bottom: 2rem;
+  padding-bottom: 2rem;
 `;
 
 export const ListTitle = styled.div`
