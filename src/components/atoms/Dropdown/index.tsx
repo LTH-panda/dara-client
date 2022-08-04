@@ -15,13 +15,15 @@ function Dropdown({ current = "test", list, onClickList }: DropdownProps) {
       <S.Cell type="button" onClick={() => setIsOpen(!isOpen)}>
         {current}
       </S.Cell>
-      {isOpen &&
-        list &&
-        list.map((E) => (
-          <S.Cell value={E.value} onClick={onClickList}>
-            {E.name}
-          </S.Cell>
-        ))}
+      {isOpen && (
+        <S.DropdownContent>
+          {list.map((E) => (
+            <S.Cell type="button" value={E.value} onClick={onClickList}>
+              {E.name}
+            </S.Cell>
+          ))}
+        </S.DropdownContent>
+      )}
     </S.Container>
   );
 }
