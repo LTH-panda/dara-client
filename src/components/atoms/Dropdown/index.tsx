@@ -1,25 +1,27 @@
-import React, { useState } from "react";
+import useClickOutside from "hooks/useClickOutside";
+import React, { useRef, useState } from "react";
 import * as S from "./style";
 
 type DropdownProps = {
   current: string;
-  list: { name: string; value: any }[];
+  list: string[];
   onClickList: React.MouseEventHandler<HTMLButtonElement>;
 };
 
-function Dropdown({ current = "test", list, onClickList }: DropdownProps) {
+function Dropdown({ current, list, onClickList }: DropdownProps) {
+  const dropdownRef = useRef<HTMLDivElement>(null);
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
+  useClickOutside(dropdownRef, () => setIsOpen(false));
+
   return (
-    <S.Container>
-      <S.Cell type="button" onClick={() => setIsOpen(!isOpen)}>
-        {current}
-      </S.Cell>
+    <S.Container onClick={() => setIsOpen(!isOpen)} ref={dropdownRef}>
+      <S.Cell type="button">{current}</S.Cell>
       {isOpen && (
         <S.DropdownContent>
           {list.map((E) => (
-            <S.Cell type="button" value={E.value} onClick={onClickList}>
-              {E.name}
+            <S.Cell type="button" value={E} onClick={onClickList} key={E}>
+              {E}
             </S.Cell>
           ))}
         </S.DropdownContent>
