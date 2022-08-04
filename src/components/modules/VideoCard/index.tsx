@@ -1,10 +1,23 @@
 import React from "react";
-import internal from "stream";
 import * as S from "./style";
 
 type VideoProps = {
   video: string;
   title: string;
   like: number;
-  onChange: React.ChangeEventHandler<HTMLInputElement>;
+  // onChange: React.ChangeEventHandler<HTMLInputElement>;
 };
+
+function VideoCard({ video, title, like }: VideoProps) {
+  return (
+    <S.VideoBlock>
+      <S.VideoSection>{video}</S.VideoSection>
+      <S.TitleSection>
+        <S.VideoCardTitle>{title}</S.VideoCardTitle>
+        <S.VideoCardLike>♥︎ {like}</S.VideoCardLike>
+      </S.TitleSection>
+    </S.VideoBlock>
+  );
+}
+
+export default VideoCard;
