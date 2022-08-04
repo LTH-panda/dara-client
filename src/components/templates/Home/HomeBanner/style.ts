@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 
 export const HomeBannerBlock = styled.div`
   width: 100%;
-  height: 20rem;
+  height: 17rem;
   background-color: #ffe4c4;
   margin-bottom: 2rem;
   display: flex;
