@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import Category from "components/modules/Category";
 import VideoList from "components/templates/Video/VideoList";
+import { ListButtons } from "components/modules";
 import React, { useState, useCallback } from "react";
 
 const videolist = [
@@ -55,6 +56,7 @@ function ComissionPage() {
   return (
     <Container>
       <Category onSelect={onSelect} cate={category} />
+      <ListButtons />
       <VideoList videolist={videolist} />
     </Container>
   );
