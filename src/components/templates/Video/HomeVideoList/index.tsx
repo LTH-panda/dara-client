@@ -2,12 +2,12 @@ import React from "react";
 import { VideoCard } from "components/modules";
 import * as S from "./style";
 
-type MainVideoListProps = {
+type HomeVideoListProps = {
   title: string;
   // onChange: React.ChangeEventHandler<HTMLInputElement>;
 };
 
-function MainVideoList({ title }: MainVideoListProps) {
+function HomeVideoList({ title }: HomeVideoListProps) {
   return (
     <S.VideoListContainer>
       <S.ListTitle>{title}</S.ListTitle>
@@ -21,4 +21,4 @@ function MainVideoList({ title }: MainVideoListProps) {
   );
 }
 
-export default MainVideoList;
+export default HomeVideoList;
