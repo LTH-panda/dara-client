@@ -5,6 +5,7 @@ export const Header = styled.header`
   align-items: center;
   gap: 2rem;
   padding: 2rem;
+  height: 6.25rem;
 `;
 
 export const SearchBar = styled.input``;
