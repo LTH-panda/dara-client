@@ -1,5 +1,6 @@
 import { LinkTo, Logotypo } from "components/atoms";
-import React from "react";
+import React, { useState } from "react";
+import HeaderModal from "../HeaderModal";
 import * as S from "./style";
 
 type HeaderProps = {
@@ -8,6 +9,8 @@ type HeaderProps = {
 };
 
 function Header({ search, onChange }: HeaderProps) {
+  const [modal, setModal] = useState(false);
+
   return (
     <S.Header>
       <Logotypo />
@@ -15,7 +18,10 @@ function Header({ search, onChange }: HeaderProps) {
       <S.Nav>
         <LinkTo href="/">완료 영상</LinkTo>
         <LinkTo href="/">의뢰 영상</LinkTo>
-        <LinkTo href="/">마이페이지</LinkTo>
+        <button type="button" onClick={() => setModal(!modal)}>
+          마이페이지
+        </button>
+        {modal === true ? <HeaderModal name="아무개" email="email" /> : null}
       </S.Nav>
     </S.Header>
   );
