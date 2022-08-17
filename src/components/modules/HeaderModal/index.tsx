@@ -28,7 +28,7 @@ function HeaderModal({ name, email }: ModalProps) {
       </S.ProfileBlock>
       <S.MyPageInfoSection>
         <S.MyPageInfoElement>
-          <LinkTo href="/home">마이페이지</LinkTo>
+          <LinkTo href="/mypage">마이페이지</LinkTo>
         </S.MyPageInfoElement>
         <S.MyPageInfoElement>신청영상</S.MyPageInfoElement>
         <S.MyPageInfoElement>제작영상</S.MyPageInfoElement>
