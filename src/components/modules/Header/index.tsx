@@ -16,7 +16,7 @@ function Header({ search, onChange }: HeaderProps) {
       <S.Nav>
         <LinkTo href="/">완료 영상</LinkTo>
         <LinkTo href="/">의뢰 영상</LinkTo>
-        <HeaderModal name="아무개" email="email" />
+        <HeaderModal name="아무개" email="email@email.com" />
       </S.Nav>
     </S.Header>
   );

@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import VieoList from "components/templates/Video/VideoList";
-import HomBanner from "components/templates/Home/HomeBanner";
+import MyProfile from "components/templates/MyProfile";
 import React from "react";
 
 const videolist = [
@@ -29,7 +29,7 @@ const videolist = [
 function Mypage() {
   return (
     <>
-      <HomBanner />
+      <MyProfile name="아무개" email="email@email.com" point="2,300" />
       <Container>
         <ListTitle>제작 중인 영상</ListTitle>
         <VieoList videolist={videolist} />

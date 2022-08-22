@@ -21,12 +21,11 @@ export const ProfileBlock = styled.div`
 `;
 
 export const ProfileImg = styled.div`
-  width: 30%;
+  width: 3rem;
+  height: 3rem;
   position: relative;
+  overflow: hidden;
   border-radius: 50%;
-  & > Image {
-    border-radius: 50%;
-  }
 `;
 
 export const ProfileInfoSection = styled.div`
