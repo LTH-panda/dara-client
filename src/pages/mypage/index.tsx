@@ -31,9 +31,9 @@ function Mypage() {
     <>
       <HomBanner />
       <Container>
-        <ListTitle>인기 동영상</ListTitle>
+        <ListTitle>제작 중인 영상</ListTitle>
         <VieoList videolist={videolist} />
-        <ListTitle>최신 동영상</ListTitle>
+        <ListTitle>제작 완료 영상</ListTitle>
         <VieoList videolist={videolist} />
       </Container>
     </>
@@ -48,7 +48,7 @@ const Container = styled.div`
 `;
 
 const ListTitle = styled.div`
-  font-size: 1.3rem;
-  font-weight: bold;
+  font-size: 1.1rem;
+  font-weight: 500;
   margin-bottom: 0.7rem;
 `;
