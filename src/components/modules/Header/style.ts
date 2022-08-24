@@ -25,3 +25,10 @@ export const Nav = styled.nav`
   gap: 2rem;
   margin-left: auto;
 `;
+
+export const CategoryButton = styled.div<{ isCurrent: boolean }>`
+  display: flex;
+  padding: 0.25rem 0;
+  height: 27px;
+  border-bottom: ${(props) => props.isCurrent && "3px solid"};
+`;
