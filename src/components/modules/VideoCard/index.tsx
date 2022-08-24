@@ -5,10 +5,9 @@ type VideoProps = {
   video: string;
   title: string;
   like: number;
-  onChange: React.ChangeEventHandler<HTMLInputElement>;
 };
 
-function VideoCard({ video, title, like, onChange }: VideoProps) {
+function VideoCard({ video, title, like }: VideoProps) {
   return (
     <S.VideoBlock>
       <S.VideoSection>{video}</S.VideoSection>

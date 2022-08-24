@@ -1,51 +1,8 @@
 import styled from "@emotion/styled";
 import Category from "components/modules/Category";
-import VideoList from "components/templates/Video/VideoList";
+import CompleteVideoList from "components/templates/Video/CompleteVideoList";
 import { ListButtons } from "components/modules";
 import React, { useState, useCallback } from "react";
-
-const videolist = [
-  {
-    title: "title",
-    video: "video",
-    like: 10,
-  },
-  {
-    title: "title",
-    video: "video",
-    like: 10,
-  },
-  {
-    title: "title",
-    video: "video",
-    like: 10,
-  },
-  {
-    title: "title",
-    video: "video",
-    like: 10,
-  },
-  {
-    title: "title",
-    video: "video",
-    like: 10,
-  },
-  {
-    title: "title",
-    video: "video",
-    like: 10,
-  },
-  {
-    title: "title",
-    video: "video",
-    like: 10,
-  },
-  {
-    title: "title",
-    video: "video",
-    like: 10,
-  },
-];
 
 function CompletePage() {
   const [category, setCategory] = useState("all");
@@ -57,7 +14,7 @@ function CompletePage() {
     <Container>
       <Category onSelect={onSelect} cate={category} />
       <ListButtons />
-      <VideoList videolist={videolist} />
+      <CompleteVideoList />
     </Container>
   );
 }
