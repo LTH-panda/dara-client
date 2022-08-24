@@ -1,4 +1,3 @@
-import { Video } from "apis/video";
 import { LinkTo, Logotypo, Spinner } from "components/atoms";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
@@ -7,20 +6,14 @@ import HeaderModal from "../HeaderModal";
 import Search from "../Search";
 import * as S from "./style";
 
-type HeaderProps = {
-  search: string;
-  onChange: React.ChangeEventHandler<HTMLInputElement>;
-  searchResult: Video[];
-};
-
-function Header({ search, onChange, searchResult }: HeaderProps) {
+function Header() {
   const { status } = useSession();
   const router = useRouter();
 
   return (
     <S.Header>
       <Logotypo />
-      <Search search={search} onSearch={onChange} searchResult={searchResult} />
+      <Search />
       <S.Nav>
         <LinkTo href="/complete">
           <S.CategoryButton isCurrent={router.asPath.includes("complete")}>
