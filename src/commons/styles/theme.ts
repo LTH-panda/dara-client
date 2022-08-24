@@ -9,6 +9,8 @@ const theme = {
     primary: "#F2D232",
     gray100: "#f1f5f9",
     gray300: "#cbd5e1",
+    gray500: "#64748b",
+    error: "#f87171;",
   },
 };
 
