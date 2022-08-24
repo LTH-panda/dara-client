@@ -10,3 +10,9 @@ export const VideoListBlock = styled.div`
   justify-content: space-between;
   flex-wrap: wrap;
 `;
+
+export const ListTitle = styled.div`
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 0.7rem;
+`;

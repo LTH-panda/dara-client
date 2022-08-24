@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import VieoList from "components/templates/Video/VideoList";
+import VieoList from "components/templates/Video/HomeVideoList";
 import MyProfile from "components/templates/MyProfile";
 import React from "react";
 

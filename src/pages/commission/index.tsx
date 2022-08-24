@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import Category from "components/modules/Category";
-import VideoList from "components/templates/Video/VideoList";
+import VideoList from "components/templates/Video/HomeVideoList";
 import { ListButtons } from "components/modules";
 import React, { useState, useCallback } from "react";
 
