@@ -1,17 +1,14 @@
 import React from "react";
+import { signIn } from "next-auth/react";
 import * as S from "./style";
 
-type AuthActionsProps = {
-  onSignIn: () => void;
-};
-
-function AuthActions({ onSignIn }: AuthActionsProps) {
+function AuthActions() {
   return (
     <S.Container>
-      <S.SignInButton type="button" onClick={onSignIn}>
+      <S.SignInButton type="button" onClick={() => signIn("google")}>
         구글로 로그인
       </S.SignInButton>
-      <S.SignInButton type="button" onClick={onSignIn}>
+      <S.SignInButton type="button" onClick={() => signIn("kakao")}>
         카카오로 로그인
       </S.SignInButton>
     </S.Container>
