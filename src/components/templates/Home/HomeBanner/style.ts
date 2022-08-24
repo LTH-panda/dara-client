@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 export const HomeBannerBlock = styled.div`
   width: 100%;
   height: 17rem;
-  background-color: #ffe4c4;
+  background-color: #fff6a3;
   margin-bottom: 2rem;
   display: flex;
   flex-direction: column;
@@ -12,8 +12,14 @@ export const HomeBannerBlock = styled.div`
   align-content: center;
 `;
 
+export const BannerText = styled.div`
+  font-family: "Gmarket-Sans";
+  font-weight: 700;
+  font-size: 1.2rem;
+`;
+
 export const BannerButtonSection = styled.div`
-  width: 15rem;
+  width: 16rem;
   display: flex;
   justify-content: space-between;
 `;
@@ -21,6 +27,9 @@ export const BannerButtonSection = styled.div`
 export const BannerButton = styled.button`
   width: 7rem;
   height: 3rem;
-  border-radius: 0.3rem;
-  background-color: #f5f5dc;
+  background-color: #ffffff;
+  border-radius: 3rem;
+  border-radius: 3px solid #b3b3b3;
+  font-size: 1.1rem;
+  font-weight: 500;
 `;

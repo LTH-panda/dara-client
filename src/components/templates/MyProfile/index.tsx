@@ -4,13 +4,7 @@ import { SvgIcon } from "components/atoms";
 import userImg from "../../../assets/images/user.png";
 import * as S from "./style";
 
-type MyProfileProps = {
-  name: string;
-  email: String;
-  point: String;
-};
-
-function MyProfile({ name, email, point }: MyProfileProps) {
+function MyProfile() {
   return (
     <S.ProfileContainer>
       <S.ProfileSection>
@@ -22,13 +16,13 @@ function MyProfile({ name, email, point }: MyProfileProps) {
             objectFit="contain"
           />
         </S.ProfileImg>
-        <S.ProfileName>{name}</S.ProfileName>
-        <S.ProfileEmail>{email}</S.ProfileEmail>
+        <S.ProfileName>아무개</S.ProfileName>
+        <S.ProfileEmail>email@email.com</S.ProfileEmail>
       </S.ProfileSection>
       <S.PointSection>
         <SvgIcon name="pcircle" size={50} />
         <S.PointTitle>포인트</S.PointTitle>
-        <S.Points>{point}P</S.Points>
+        <S.Points>2,300P</S.Points>
       </S.PointSection>
     </S.ProfileContainer>
   );
