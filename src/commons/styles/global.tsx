@@ -35,6 +35,7 @@ const styles = css`
   html,
   body {
     min-height: 100%;
+    font-family: "GmarketSansMedium";
   }
   #__next {
     height: 100%;
