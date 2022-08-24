@@ -1,13 +1,18 @@
 import React from "react";
+import { LinkTo } from "components/atoms";
 import * as S from "./style";
 
 function HomBanner() {
   return (
     <S.HomeBannerBlock>
-      <div>홍보 문구</div>
+      <S.BannerText>모두가 동등하게 콘텐츠를 즐길 수 있도록</S.BannerText>
       <S.BannerButtonSection>
-        <S.BannerButton>신청하기</S.BannerButton>
-        <S.BannerButton>제작하기</S.BannerButton>
+        <LinkTo href="/video/request">
+          <S.BannerButton>신청하기</S.BannerButton>
+        </LinkTo>
+        <LinkTo href="/">
+          <S.BannerButton>제작하기</S.BannerButton>
+        </LinkTo>
       </S.BannerButtonSection>
     </S.HomeBannerBlock>
   );

@@ -5,6 +5,7 @@ import type { AppProps } from "next/app";
 import Head from "next/head";
 import { RecoilRoot } from "recoil";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import "../assets/fonts/style.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const queryClient = new QueryClient();
