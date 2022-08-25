@@ -4,7 +4,7 @@ export const HomeBannerBlock = styled.div`
   width: 100%;
   height: 17rem;
   background-color: #fff6a3;
-  margin-bottom: 2rem;
+  margin-bottom: 3.5rem;
   display: flex;
   flex-direction: column;
   justify-content: space-around;

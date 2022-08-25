@@ -1,46 +1,56 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { getVideoListPopular } from "apis/video";
 import { VideoCard } from "components/modules";
+import { useQuery } from "@tanstack/react-query";
 import * as S from "./style";
 
 const videolist = [
   {
-    title: "title",
-    video: "video",
-    like: 10,
+    videoIdx: 1,
+    title: "뉴진스 민지",
+    link: "https://youtu.be/p1cE9T0CFCQ",
   },
   {
-    title: "title",
-    video: "video",
-    like: 10,
+    videoIdx: 2,
+    title: "엔시티 런쥔",
+    link: "https://youtu.be/mhJfozWlSaM",
   },
   {
-    title: "title",
-    video: "video",
-    like: 10,
+    videoIdx: 3,
+    title: "소녀시대 윤아",
+    link: "https://youtu.be/uoxcux4Scxc",
   },
   {
-    title: "title",
-    video: "video",
-    like: 10,
+    videoIdx: 4,
+    title: "뉴진스 하니",
+    link: "https://youtu.be/lmJPeFW75qQ",
   },
 ];
 
 function HomeVideoList() {
+  // const { status, data, error } = useQuery(["popular"], getVideoListPopular);
+
+  // console.log(data);
+
   return (
     <S.VideoListContainer>
       <S.ListTitle>인기 동영상</S.ListTitle>
       <S.VideoListBlock>
         {videolist &&
-          videolist.map((v: { title: string; video: string; like: number }) => (
-            <VideoCard title={v.title} video={v.video} like={v.like} />
-          ))}
+          videolist.map(
+            (v: { videoIdx: number; title: string; link: string }) => (
+              <VideoCard videoIdx={v.videoIdx} title={v.title} link={v.link} />
+            )
+          )}
       </S.VideoListBlock>
       <S.ListTitle>최신 동영상</S.ListTitle>
       <S.VideoListBlock>
         {videolist &&
-          videolist.map((v: { title: string; video: string; like: number }) => (
-            <VideoCard title={v.title} video={v.video} like={v.like} />
-          ))}
+          videolist.map(
+            (v: { videoIdx: number; title: string; link: string }) => (
+              <VideoCard videoIdx={v.videoIdx} title={v.title} link={v.link} />
+            )
+          )}
       </S.VideoListBlock>
     </S.VideoListContainer>
   );
