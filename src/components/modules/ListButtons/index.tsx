@@ -5,7 +5,7 @@ import * as S from "./style";
 function ListButtons() {
   return (
     <S.ButtonsSection>
-      <LinkTo href="/">
+      <LinkTo href="/video/reqeust">
         <S.ListButton>신청하기</S.ListButton>
       </LinkTo>
       <LinkTo href="/">
