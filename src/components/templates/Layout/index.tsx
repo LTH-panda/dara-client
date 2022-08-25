@@ -6,7 +6,6 @@ type LayoutProps = {
 };
 
 function Layout({ children }: LayoutProps) {
-  // Layout 만 비즈니스 로직 작성
   return (
     <>
       <Header />

@@ -1,6 +1,12 @@
 import styled from "@emotion/styled";
 
-export const ModalContainer = styled.div``;
+export const ModalContainer = styled.div`
+  z-index: 10;
+`;
+
+export const UserIcon = styled.span`
+  cursor: pointer;
+`;
 
 export const ModalBlock = styled.div`
   width: 15rem;
@@ -54,7 +60,7 @@ export const MyPageInfoElement = styled.div`
   margin-bottom: 1rem;
 `;
 
-export const LogoutSection = styled.div`
+export const LogoutSection = styled.button`
   margin: 1rem 0;
   font-size: 1rem;
 `;

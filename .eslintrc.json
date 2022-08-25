@@ -41,6 +41,7 @@
         "optionalDependencies": false,
         "peerDependencies": false
       }
-    ]
+    ],
+    "no-nested-ternary": [0]
   }
 }

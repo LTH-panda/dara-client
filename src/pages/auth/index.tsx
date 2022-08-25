@@ -3,11 +3,10 @@ import { AuthActions } from "components/templates/Auth";
 import React from "react";
 
 function AuthPage() {
-  const onSignIn = () => {};
-
   return (
     <Container>
-      <AuthActions onSignIn={onSignIn} />
+      <Title>소셜로그인으로 합류하세요!</Title>
+      <AuthActions />
     </Container>
   );
 }
@@ -15,7 +14,15 @@ function AuthPage() {
 export default AuthPage;
 
 const Container = styled.div`
-  padding: 6rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding: 8rem 2rem;
   margin: auto;
-  max-width: 400px;
+  max-width: 520px;
+`;
+
+const Title = styled.h1`
+  font-size: 2rem;
+  text-align: center;
 `;

@@ -1,7 +1,8 @@
 import React, { useRef, useState } from "react";
 import Image from "next/image";
-import { LinkTo } from "components/atoms";
+import { LinkTo, SvgIcon } from "components/atoms";
 import useClickOutside from "hooks/useClickOutside";
+import { signOut } from "next-auth/react";
 import userImg from "../../../assets/images/user.png";
 import * as S from "./style";
 
@@ -18,7 +19,9 @@ function HeaderModal({ name, email }: ModalProps) {
 
   return (
     <S.ModalContainer onClick={() => setIsOpen(!isOpen)} ref={dropdownRef}>
-      마이페이지
+      <S.UserIcon>
+        <SvgIcon name="user" size={25} />
+      </S.UserIcon>
       {isOpen && (
         <S.ModalBlock>
           <S.ProfileBlock>
@@ -46,7 +49,7 @@ function HeaderModal({ name, email }: ModalProps) {
             <S.MyPageInfoElement>계정관리</S.MyPageInfoElement>
           </S.MyPageInfoSection>
           <hr />
-          <S.LogoutSection>
+          <S.LogoutSection type="button" onClick={() => signOut()}>
             <S.MyPageInfoElement>로그아웃</S.MyPageInfoElement>
           </S.LogoutSection>
         </S.ModalBlock>

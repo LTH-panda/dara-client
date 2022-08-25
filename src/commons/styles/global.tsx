@@ -35,6 +35,7 @@ const styles = css`
   html,
   body {
     min-height: 100%;
+    font-family: "GmarketSansMedium";
   }
   #__next {
     height: 100%;
@@ -58,6 +59,13 @@ const styles = css`
   table {
     border-collapse: collapse;
     border-spacing: 0;
+  }
+  @font-face {
+    font-family: "GmarketSansMedium";
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff")
+      format("woff");
+    font-weight: normal;
+    font-style: normal;
   }
 `;
 
