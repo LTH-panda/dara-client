@@ -5,37 +5,37 @@ import * as S from "./style";
 
 const categories = [
   {
-    idx: 1,
+    idx: 0,
     name: "all",
     text: "전체",
   },
   {
-    idx: 2,
+    idx: 1,
     name: "education",
     text: "교육",
   },
   {
-    idx: 3,
+    idx: 2,
     name: "trip",
     text: "여행",
   },
   {
-    idx: 4,
+    idx: 3,
     name: "sports",
     text: "스포츠",
   },
   {
-    idx: 5,
+    idx: 4,
     name: "game",
     text: "게임",
   },
   {
-    idx: 6,
+    idx: 5,
     name: "enter",
     text: "엔터",
   },
   {
-    idx: 7,
+    idx: 6,
     name: "etc",
     text: "기타",
   },
