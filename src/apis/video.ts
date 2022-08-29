@@ -31,7 +31,7 @@ export type Video = {
 
 export const getVideoListComplete = async () => {
   const res = await client.get<Video[]>("/videos/completion");
-  return res.data;
+  return res.data.result;
 };
 
 export const getVideoListRequestByCategory = async (categoryId: number) => {
@@ -50,7 +50,7 @@ export const getVideoListCompleteByCategory = async (categoryId: number) => {
 
 export const getVideoListPopular = async () => {
   const res = await client.get<Video[]>("/videos/main/popular");
-  return res.data;
+  return res.data.result;
 };
 
 export type Subtitle = {

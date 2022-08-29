@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getVideoListPopular } from "apis/video";
+import { getVideoListPopular, getVideoListComplete } from "apis/video";
 import { VideoCard } from "components/modules";
 import { useQuery } from "@tanstack/react-query";
 import * as S from "./style";
@@ -28,27 +28,51 @@ const videolist = [
 ];
 
 function HomeVideoList() {
-  // const { status, data, error } = useQuery(["popular"], getVideoListPopular);
+  const populerQuery = useQuery(["popularVideo"], getVideoListPopular);
+  const [popularVideo, setPopularVideo] = useState([]);
 
-  // console.log(data);
+  const newQuery = useQuery(["newVideo"], getVideoListComplete);
+  const [newVideo, setNewVideo] = useState([]);
+
+  useEffect(() => {
+    if (populerQuery.data) {
+      setPopularVideo(populerQuery.data);
+    }
+  }, [populerQuery.data]);
+
+  useEffect(() => {
+    if (newQuery.data) {
+      setNewVideo(newQuery.data);
+    }
+  }, [newQuery.data]);
 
   return (
     <S.VideoListContainer>
       <S.ListTitle>인기 동영상</S.ListTitle>
       <S.VideoListBlock>
-        {videolist &&
-          videolist.map(
+        {popularVideo &&
+          popularVideo.map(
             (v: { videoIdx: number; title: string; link: string }) => (
-              <VideoCard videoIdx={v.videoIdx} title={v.title} link={v.link} />
+              <VideoCard
+                videoIdx={v.videoIdx}
+                title={v.title}
+                link={v.link}
+                key={v.videoIdx}
+              />
             )
           )}
       </S.VideoListBlock>
       <S.ListTitle>최신 동영상</S.ListTitle>
       <S.VideoListBlock>
-        {videolist &&
-          videolist.map(
+        {newVideo &&
+          newVideo.map(
             (v: { videoIdx: number; title: string; link: string }) => (
-              <VideoCard videoIdx={v.videoIdx} title={v.title} link={v.link} />
+              <VideoCard
+                videoIdx={v.videoIdx}
+                title={v.title}
+                link={v.link}
+                key={v.videoIdx}
+              />
             )
           )}
       </S.VideoListBlock>
