@@ -30,27 +30,33 @@ export type Video = {
 };
 
 export const getVideoListComplete = async () => {
-  const res = await client.get<Video[]>("/videos/completion");
-  return res.data;
+  const res = await client.get<{ result: Video[] }>("/videos/completion");
+  return res.data.result;
 };
 
 export const getVideoListRequestByCategory = async (categoryId: number) => {
-  const res = await client.get<Video[]>("/videos/request/category", {
-    params: { categoryId },
-  });
+  const res = await client.get<{ result: Video[] }>(
+    "/videos/request/category",
+    {
+      params: { categoryId },
+    }
+  );
   return res.data;
 };
 
 export const getVideoListCompleteByCategory = async (categoryId: number) => {
-  const res = await client.get<Video[]>("/videos/completion/category", {
-    params: { categoryId },
-  });
+  const res = await client.get<{ result: Video[] }>(
+    "/videos/completion/category",
+    {
+      params: { categoryId },
+    }
+  );
   return res.data;
 };
 
 export const getVideoListPopular = async () => {
-  const res = await client.get<Video[]>("/videos/main/popular");
-  return res.data;
+  const res = await client.get<{ result: Video[] }>("/videos/main/popular");
+  return res.data.result;
 };
 
 export type Subtitle = {
