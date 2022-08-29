@@ -1,50 +1,28 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { getVideoListPopular, getVideoListComplete } from "apis/video";
 import { VideoCard } from "components/modules";
 import { useQuery } from "@tanstack/react-query";
 import * as S from "./style";
 
-const videolist = [
-  {
-    videoIdx: 1,
-    title: "뉴진스 민지",
-    link: "https://youtu.be/p1cE9T0CFCQ",
-  },
-  {
-    videoIdx: 2,
-    title: "엔시티 런쥔",
-    link: "https://youtu.be/mhJfozWlSaM",
-  },
-  {
-    videoIdx: 3,
-    title: "소녀시대 윤아",
-    link: "https://youtu.be/uoxcux4Scxc",
-  },
-  {
-    videoIdx: 4,
-    title: "뉴진스 하니",
-    link: "https://youtu.be/lmJPeFW75qQ",
-  },
-];
-
 function HomeVideoList() {
-  const populerQuery = useQuery(["popularVideo"], getVideoListPopular);
-  const [popularVideo, setPopularVideo] = useState([]);
+  const {
+    data: popularVideo,
+    isLoadingPopular,
+    errorPopular,
+  } = useQuery(["popularVideo"], getVideoListPopular);
+  const {
+    data: newVideo,
+    isLoadingNew,
+    errorNew,
+  } = useQuery(["newVideo"], getVideoListComplete);
 
-  const newQuery = useQuery(["newVideo"], getVideoListComplete);
-  const [newVideo, setNewVideo] = useState([]);
+  if (isLoadingPopular && isLoadingNew) {
+    return <div>loading...</div>;
+  }
 
-  useEffect(() => {
-    if (populerQuery.data) {
-      setPopularVideo(populerQuery.data);
-    }
-  }, [populerQuery.data]);
-
-  useEffect(() => {
-    if (newQuery.data) {
-      setNewVideo(newQuery.data);
-    }
-  }, [newQuery.data]);
+  if (errorPopular && errorNew) {
+    return <div>error</div>;
+  }
 
   return (
     <S.VideoListContainer>
