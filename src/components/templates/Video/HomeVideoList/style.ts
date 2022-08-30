@@ -7,7 +7,7 @@ export const VideoListContainer = styled.div`
 
 export const VideoListBlock = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
 `;
 

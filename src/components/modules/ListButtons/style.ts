@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 
 export const ButtonsSection = styled.div`
   position: absolute;
-  right: 2.5rem;
+  right: 3.5rem;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
