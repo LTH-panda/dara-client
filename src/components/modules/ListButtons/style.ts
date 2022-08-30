@@ -10,8 +10,15 @@ export const ButtonsSection = styled.div`
 
 export const ListButton = styled.div`
   width: 5rem;
-  padding: 0.7rem 0.2rem;
-  margin-bottom: 0.5rem;
+  padding: 1rem 0.5rem;
+  margin-bottom: 0.7rem;
   text-align: center;
-  background-color: #a9a9a9;
+  background-color: #ffffff;
+  border-radius: 3rem;
+  border: 0.5px solid #b3b3b3;
+  font-size: 0.88rem;
+  font-weight: 500;
+  &:hover {
+    background-color: #6fa9ff;
+  }
 `;

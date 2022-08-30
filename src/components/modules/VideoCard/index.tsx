@@ -1,20 +1,27 @@
 import React from "react";
+import { LinkTo } from "components/atoms";
 import * as S from "./style";
 
 type VideoProps = {
-  video: string;
+  videoIdx: number;
   title: string;
-  like: number;
+  link: string;
 };
 
-function VideoCard({ video, title, like }: VideoProps) {
+function VideoCard({ videoIdx, title, link }: VideoProps) {
+  const thumbIdx = link.split("/").reverse()[0];
+  const thumbnail = `https://img.youtube.com/vi/${thumbIdx}/mqdefault.jpg`;
+
   return (
     <S.VideoBlock>
-      <S.VideoSection>{video}</S.VideoSection>
-      <S.TitleSection>
-        <S.VideoCardTitle>{title}</S.VideoCardTitle>
-        <S.VideoCardLike>♥︎ {like}</S.VideoCardLike>
-      </S.TitleSection>
+      <LinkTo href={`/video/${videoIdx}`}>
+        <S.VideoSection>
+          <S.Thumbnail src={thumbnail} alt={title} />
+        </S.VideoSection>
+        <S.TitleSection>
+          <S.VideoCardTitle>{title}</S.VideoCardTitle>
+        </S.TitleSection>
+      </LinkTo>
     </S.VideoBlock>
   );
 }

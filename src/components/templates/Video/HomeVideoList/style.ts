@@ -12,7 +12,7 @@ export const VideoListBlock = styled.div`
 `;
 
 export const ListTitle = styled.div`
-  font-size: 1.3rem;
-  font-weight: bold;
-  margin-bottom: 0.7rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
 `;

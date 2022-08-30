@@ -14,12 +14,13 @@ export const CategoryButton = styled.div`
   padding: 0.6rem;
   margin-right: 1rem;
   text-align: center;
-  font-size: 1rem;
-  border-radius: 2rem;
-  background-color: ${(props) => (props.active ? "#9a9a9a" : "#e1e1e1")};
+  font-size: 0.93rem;
+  border-radius: 3rem;
+  border: 0.5px solid #b3b3b3;
+  background-color: ${(props) => (props.active ? "#6fa9ff" : "#ffffff")};
   white-space: pre;
   cursor: pointer;
   &:hover {
-    background-color: #9a9a9a;
+    background-color: #a4c8ff;
   }
 `;
