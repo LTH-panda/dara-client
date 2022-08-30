@@ -7,13 +7,13 @@ import * as S from "./style";
 function HomeVideoList() {
   const {
     data: popularVideo,
-    isLoadingPopular,
-    errorPopular,
+    isLoading: isLoadingPopular,
+    error: errorPopular,
   } = useQuery(["popularVideo"], getVideoListPopular);
   const {
     data: newVideo,
-    isLoadingNew,
-    errorNew,
+    isLoading: isLoadingNew,
+    error: errorNew,
   } = useQuery(["newVideo"], getVideoListComplete);
 
   if (isLoadingPopular && isLoadingNew) {
@@ -21,7 +21,7 @@ function HomeVideoList() {
   }
 
   if (errorPopular && errorNew) {
-    return <div>error</div>;
+    return <div>error...</div>;
   }
 
   return (

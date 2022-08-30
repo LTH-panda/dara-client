@@ -29,29 +29,34 @@ export type Video = {
   admin: string;
 };
 
+export const getVideoListRequest = async () => {
+  const res = await client.get<{ result: Video[] }>("/videos/request");
+  return res.data.result;
+};
+
 export const getVideoListComplete = async () => {
   const res = await client.get<{ result: Video[] }>("/videos/completion");
   return res.data.result;
 };
 
-export const getVideoListRequestByCategory = async (categoryId: number) => {
+export const getVideoListRequestByCategory = async (categoryIdx: number) => {
   const res = await client.get<{ result: Video[] }>(
     "/videos/request/category",
     {
-      params: { categoryId },
+      params: { categoryIdx },
     }
   );
-  return res.data;
+  return res.data.result;
 };
 
-export const getVideoListCompleteByCategory = async (categoryId: number) => {
+export const getVideoListCompleteByCategory = async (categoryIdx: number) => {
   const res = await client.get<{ result: Video[] }>(
     "/videos/completion/category",
     {
-      params: { categoryId },
+      params: { categoryIdx },
     }
   );
-  return res.data;
+  return res.data.result;
 };
 
 export const getVideoListPopular = async () => {
