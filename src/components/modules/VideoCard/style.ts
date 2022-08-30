@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 export const VideoBlock = styled.div`
   width: 23%;
   margin-bottom: 2rem;
-  margin-right: 1rem;
+  margin-right: 1.2rem;
   cursor: pointer;
 `;
 

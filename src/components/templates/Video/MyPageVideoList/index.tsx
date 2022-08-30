@@ -1,48 +1,61 @@
 import React from "react";
+import {
+  getVideoListRequestByUserId,
+  getVideoListProduceByUserId,
+} from "apis/mypage";
 import { VideoCard } from "components/modules";
+import { useQuery } from "@tanstack/react-query";
 import * as S from "./style";
 
-const videolist = [
-  {
-    videoIdx: 1,
-    title: "뉴진스 민지",
-    link: "https://youtu.be/p1cE9T0CFCQ",
-  },
-  {
-    videoIdx: 2,
-    title: "엔시티 런쥔",
-    link: "https://youtu.be/mhJfozWlSaM",
-  },
-  {
-    videoIdx: 3,
-    title: "소녀시대 윤아",
-    link: "https://youtu.be/uoxcux4Scxc",
-  },
-  {
-    videoIdx: 4,
-    title: "뉴진스 하니",
-    link: "https://youtu.be/lmJPeFW75qQ",
-  },
-];
-
 function MyPageVideoList() {
+  const {
+    data: userRequestVideo,
+    isLoading: isLoadingRequest,
+    error: errorRequest,
+  } = useQuery(["userRequest"], () => getVideoListRequestByUserId(13));
+  const {
+    data: userProduceVideo,
+    isLoading: isLoadingProduce,
+    error: errorProduce,
+  } = useQuery(["userProduce"], () => getVideoListProduceByUserId(13));
+
+  console.log(userRequestVideo);
+
+  if (isLoadingRequest && isLoadingProduce) {
+    return <div>loading...</div>;
+  }
+
+  if (errorRequest && errorProduce) {
+    return <div>error...</div>;
+  }
+
   return (
     <S.VideoListContainer>
-      <S.ListTitle>제작 중인 영상</S.ListTitle>
+      <S.ListTitle>신청 영상</S.ListTitle>
       <S.VideoListBlock>
-        {videolist &&
-          videolist.map(
+        {userRequestVideo.reqList &&
+          userRequestVideo.reqList.map(
             (v: { videoIdx: number; title: string; link: string }) => (
-              <VideoCard videoIdx={v.videoIdx} title={v.title} link={v.link} />
+              <VideoCard
+                videoIdx={v.videoIdx}
+                title={v.title}
+                link={v.link}
+                key={v.videoIdx}
+              />
             )
           )}
       </S.VideoListBlock>
-      <S.ListTitle>제작 완료 영상</S.ListTitle>
+      <S.ListTitle>제작 영상</S.ListTitle>
       <S.VideoListBlock>
-        {videolist &&
-          videolist.map(
+        {userProduceVideo.reqList &&
+          userProduceVideo.reqList.map(
             (v: { videoIdx: number; title: string; link: string }) => (
-              <VideoCard videoIdx={v.videoIdx} title={v.title} link={v.link} />
+              <VideoCard
+                videoIdx={v.videoIdx}
+                title={v.title}
+                link={v.link}
+                key={v.videoIdx}
+              />
             )
           )}
       </S.VideoListBlock>
