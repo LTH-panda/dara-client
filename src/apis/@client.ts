@@ -1,8 +1,8 @@
 import axios from "axios";
 
 const client = axios.create({
-  baseURL: "",
-  withCredentials: true,
+  baseURL: "https://kbdara.shop",
+  // withCredentials: true,
 });
 
 export default client;
