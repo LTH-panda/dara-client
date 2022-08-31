@@ -6,10 +6,10 @@ function VideoForm() {
   return (
     <S.Container>
       <VideoPlayer />
-      <S.Title>title</S.Title>
-      <S.Actions>
+      <S.Block>
+        <S.Title>title</S.Title>
         <S.Submit>제출</S.Submit>
-      </S.Actions>
+      </S.Block>
     </S.Container>
   );
 }
