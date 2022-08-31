@@ -8,7 +8,6 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { SessionProvider } from "next-auth/react";
 import "../assets/fonts/style.css";
 
-
 function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   const queryClient = new QueryClient();
 

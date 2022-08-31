@@ -5,4 +5,8 @@ const client = axios.create({
   // withCredentials: true,
 });
 
+export const setAccessToken = (accessToken: string) => {
+  client.defaults.headers.common["X-ACCESS-TOKEN"] = accessToken;
+};
+
 export default client;
