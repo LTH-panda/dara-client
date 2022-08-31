@@ -86,8 +86,8 @@ export const getVideoById = async (videoIdx: number) => {
 };
 
 export const searchByTitle = async (title: string) => {
-  const res = await client.get<Video[]>("/videos/search", {
+  const res = await client.get<{ result: Video[] }>("/videos/search", {
     params: { title },
   });
-  return res.data;
+  return res.data.result;
 };
