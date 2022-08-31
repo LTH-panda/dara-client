@@ -1,8 +1,10 @@
-import React, { useCallback, useEffect, useState } from "react";
+import useClickOutside from "hooks/useClickOutside";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import SearchResult from "../SearchResult";
 import * as S from "./style";
 
 function Search() {
+  const searchRef = useRef<HTMLFormElement>(null);
   const [search, setSearch] = useState<string>("");
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [isFocus, setIsFocus] = useState<boolean>(false);
@@ -13,24 +15,22 @@ function Search() {
   );
 
   useEffect(() => {
-    if (isFocus) {
-      if (search) {
-        setIsOpen(true);
-      } else setIsOpen(false);
+    if (isFocus && search) {
+      setIsOpen(true);
     } else setIsOpen(false);
   }, [isOpen, isFocus, search]);
+  useClickOutside(searchRef, () => setIsFocus(false));
 
   return (
-    <S.Container>
+    <S.Container ref={searchRef}>
       <S.SearchBar
         placeholder="검색"
         value={search}
         onChange={onChange}
         onFocus={() => setIsFocus(true)}
-        onBlur={() => setIsFocus(false)}
       />
       {isOpen && (
-        <S.SearchDrowdown>
+        <S.SearchDrowdown onClick={() => setIsFocus(false)}>
           <SearchResult search={search} />
         </S.SearchDrowdown>
       )}
