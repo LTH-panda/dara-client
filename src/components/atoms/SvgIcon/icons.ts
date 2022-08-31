@@ -1,4 +1,7 @@
+export { default as check } from "assets/icons/check.svg";
+export { default as close } from "assets/icons/close.svg";
 export { default as dotsHorizontal } from "assets/icons/dots-horizontal.svg";
+export { default as edit } from "assets/icons/edit.svg";
 export { default as logoA } from "assets/icons/logo-a.svg";
 export { default as logoD } from "assets/icons/logo-d.svg";
 export { default as logoR } from "assets/icons/logo-r.svg";
