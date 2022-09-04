@@ -1,3 +1,5 @@
+/* eslint-disable no-param-reassign */
+import { login } from "apis/user";
 import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import KakaoProvider from "next-auth/providers/kakao";
@@ -21,12 +23,25 @@ export default NextAuth({
     signIn: "/auth",
     error: "/auth/error",
   },
+  events: {
+    signOut({ session, token }) {
+      if (session) session.user.jwtToken = null!;
+      if (token) token.jwtToken = null;
+    },
+  },
 
   callbacks: {
     async signIn({ user }) {
       if (user) {
         try {
-          // logic
+          const result = await login({
+            name: user.name ?? "empty",
+            email: user.email ?? "empty",
+            nickname: user.name ?? "empty",
+            profileImg: user.image ?? "empty",
+          });
+          user.jwtToken = result.jwtToken;
+          return true;
         } catch (e) {
           return false;
         }
@@ -34,9 +49,15 @@ export default NextAuth({
       return false;
     },
     jwt({ token, user }) {
+      if (user) {
+        token.jwtToken = user.jwtToken;
+      }
       return token;
     },
     session({ session, token }) {
+      if (token) {
+        session.user.jwtToken = token.jwtToken as string;
+      }
       return session;
     },
     redirect({ baseUrl }) {
