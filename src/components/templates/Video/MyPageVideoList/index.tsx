@@ -19,8 +19,6 @@ function MyPageVideoList() {
     error: errorProduce,
   } = useQuery(["userProduce"], () => getVideoListProduceByUserId(13));
 
-  console.log(userRequestVideo);
-
   if (isLoadingRequest && isLoadingProduce) {
     return <div>loading...</div>;
   }
@@ -33,8 +31,8 @@ function MyPageVideoList() {
     <S.VideoListContainer>
       <S.ListTitle>신청 영상</S.ListTitle>
       <S.VideoListBlock>
-        {userRequestVideo.reqList &&
-          userRequestVideo.reqList.map(
+        {userRequestVideo &&
+          userRequestVideo.map(
             (v: { videoIdx: number; title: string; link: string }) => (
               <VideoCard
                 videoIdx={v.videoIdx}
@@ -47,8 +45,8 @@ function MyPageVideoList() {
       </S.VideoListBlock>
       <S.ListTitle>제작 영상</S.ListTitle>
       <S.VideoListBlock>
-        {userProduceVideo.reqList &&
-          userProduceVideo.reqList.map(
+        {userProduceVideo &&
+          userProduceVideo.map(
             (v: { videoIdx: number; title: string; link: string }) => (
               <VideoCard
                 videoIdx={v.videoIdx}
