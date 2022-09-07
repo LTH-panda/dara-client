@@ -7,13 +7,13 @@ import * as S from "./style";
 function HomeVideoList() {
   const {
     data: popularVideo,
-    isLoadingPopular,
-    errorPopular,
+    isLoading: isLoadingPopular,
+    error: errorPopular,
   } = useQuery(["popularVideo"], getVideoListPopular);
   const {
     data: newVideo,
-    isLoadingNew,
-    errorNew,
+    isLoading: isLoadingNew,
+    error: errorNew,
   } = useQuery(["newVideo"], getVideoListComplete);
 
   if (isLoadingPopular && isLoadingNew) {
@@ -21,7 +21,7 @@ function HomeVideoList() {
   }
 
   if (errorPopular && errorNew) {
-    return <div>error</div>;
+    return <div>error...</div>;
   }
 
   return (
@@ -29,30 +29,30 @@ function HomeVideoList() {
       <S.ListTitle>인기 동영상</S.ListTitle>
       <S.VideoListBlock>
         {popularVideo &&
-          popularVideo.map(
-            (v: { videoIdx: number; title: string; link: string }) => (
+          popularVideo
+            .slice(0, 4)
+            .map((v: { videoIdx: number; title: string; link: string }) => (
               <VideoCard
                 videoIdx={v.videoIdx}
                 title={v.title}
                 link={v.link}
                 key={v.videoIdx}
               />
-            )
-          )}
+            ))}
       </S.VideoListBlock>
       <S.ListTitle>최신 동영상</S.ListTitle>
       <S.VideoListBlock>
         {newVideo &&
-          newVideo.map(
-            (v: { videoIdx: number; title: string; link: string }) => (
+          newVideo
+            .slice(0, 4)
+            .map((v: { videoIdx: number; title: string; link: string }) => (
               <VideoCard
                 videoIdx={v.videoIdx}
                 title={v.title}
                 link={v.link}
                 key={v.videoIdx}
               />
-            )
-          )}
+            ))}
       </S.VideoListBlock>
     </S.VideoListContainer>
   );
