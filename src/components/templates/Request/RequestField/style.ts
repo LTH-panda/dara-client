@@ -8,5 +8,11 @@ export const Container = styled.div`
 export const LinkField = styled.input`
   flex: 1;
   padding: 1rem;
-  border-radius: 6px;
+  background: #ffffff;
+  border: 1px solid #b3b3b3;
+  border-radius: 40px 0px 0px 40px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 28px;
 `;
