@@ -8,10 +8,10 @@ function VideoPage() {
     <Container>
       <VideoSection>
         <VideoPlayer />
-        <VideoAbout title="제목" author="작성자" isConfirmed />
+        <VideoAbout title="제목" nickname="작성자" />
       </VideoSection>
       <SubtitleSection>
-        <SubtitleList />
+        <SubtitleList subtitles={[1, 2, 3, 4, 5, 6, 6, 6, 6, 6]} />
       </SubtitleSection>
     </Container>
   );
@@ -21,19 +21,20 @@ export default VideoPage;
 
 const Container = styled.main`
   display: flex;
-  margin: auto;
+  margin: 0 auto;
   width: 1440px;
+  height: 80vh;
 `;
 const VideoSection = styled.section`
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   padding: 0 1rem;
   width: 60%;
   height: 100%;
 `;
 const SubtitleSection = styled.section`
+  display: flex;
   width: 40%;
   height: 100%;
   padding-right: 2rem;

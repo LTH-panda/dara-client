@@ -1,3 +1,4 @@
+import theme from "commons/styles/theme";
 import React from "react";
 import LinkTo from "../LinkTo";
 import SvgIcon from "../SvgIcon";
@@ -7,10 +8,10 @@ function Logotypo() {
   return (
     <LinkTo href="/">
       <S.Logo>
-        <SvgIcon name="logoD" />
-        <SvgIcon name="logoA" />
-        <SvgIcon name="logoR" />
-        <SvgIcon name="logoA" />
+        <SvgIcon name="logoD" color={theme.color.primary} />
+        <SvgIcon name="logoA" color={theme.color.primary} />
+        <SvgIcon name="logoR" color={theme.color.primary} />
+        <SvgIcon name="logoA" color={theme.color.primary} />
       </S.Logo>
     </LinkTo>
   );

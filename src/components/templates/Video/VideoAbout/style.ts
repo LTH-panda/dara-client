@@ -1,15 +1,20 @@
 import styled from "@emotion/styled";
 
 export const Container = styled.header`
+  flex: 1;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: 1rem;
-  padding: 1rem;
+  padding: 1rem 1rem 0;
   width: 100%;
 `;
 
 export const Title = styled.h1`
-  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 28px;
 `;
 
 export const RowContainer = styled.div`
@@ -18,7 +23,12 @@ export const RowContainer = styled.div`
   gap: 1rem;
 `;
 
-export const Author = styled.div``;
+export const Author = styled.div`
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 21px;
+`;
 
 export const ConfirmMark = styled.div`
   display: flex;
@@ -37,6 +47,27 @@ export const Actions = styled.div`
 `;
 
 export const ActionButton = styled.button`
-  padding: 1rem;
-  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  position: relative;
+  display: flex;
+  align-items: center;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 21px;
+`;
+
+export const ShareModal = styled.div`
+  position: absolute;
+  left: 100px;
+  bottom: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  width: 734px;
+  height: 60px;
+  background: #ffffff;
+  border: 1px solid #b3b3b3;
+  border-radius: 30px;
+  z-index: 9999;
 `;
