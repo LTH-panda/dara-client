@@ -27,14 +27,8 @@ function Header() {
         </LinkTo>
         {status === "loading" ? (
           <Spinner isVisible />
-        ) : status === "authenticated" ? (
-          <HeaderModal name="아무개" email="email@email.com" />
         ) : (
-          <LinkTo href="/auth">
-            <S.CategoryButton isCurrent={router.asPath.includes("auth")}>
-              로그인
-            </S.CategoryButton>
-          </LinkTo>
+          <HeaderModal name="김지수" email="earthssu113@naver.com" />
         )}
       </S.Nav>
     </S.Header>
