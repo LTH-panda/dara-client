@@ -22,7 +22,7 @@ export const ModalBlock = styled.div`
 export const ProfileBlock = styled.div`
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   margin-bottom: 1rem;
 `;
 
@@ -43,13 +43,13 @@ export const ProfileInfoSection = styled.div`
 `;
 
 export const ProfileName = styled.div`
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
 `;
 
 export const ProfileEmail = styled.div`
-  font-size: 1rem;
+  font-size: 0.7rem;
 `;
 
 export const MyPageInfoSection = styled.div`

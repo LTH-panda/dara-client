@@ -30,7 +30,7 @@ export const ProfileImg = styled.div`
   width: 4rem;
   height: 4rem;
   border-radius: 50%;
-  background-color: red;
+  background-color: #ffffff;
   margin-bottom: 1rem;
   overflow: hidden;
   position: relative;
