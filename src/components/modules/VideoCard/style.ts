@@ -23,5 +23,6 @@ export const TitleSection = styled.div`
 `;
 
 export const VideoCardTitle = styled.span`
+  width: 100%;
   font-size: 0.85rem;
 `;
