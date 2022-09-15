@@ -79,10 +79,10 @@ export type VideoDetail = {
 };
 
 export const getVideoById = async (videoIdx: number) => {
-  const res = await client.get<VideoDetail>("/videos/video", {
+  const res = await client.get<{ result: VideoDetail }>("/videos/video", {
     params: { videoIdx },
   });
-  return res.data;
+  return res.data.result;
 };
 
 export const searchByTitle = async (title: string) => {

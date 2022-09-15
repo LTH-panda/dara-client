@@ -1,20 +1,56 @@
 import styled from "@emotion/styled";
+import { useQuery } from "@tanstack/react-query";
+import { getVideoById } from "apis/video";
+import { Spinner } from "components/atoms";
 import { SubtitleList } from "components/templates/Subtitle";
 import { VideoAbout, VideoPlayer } from "components/templates/Video";
-import React from "react";
+import { useRouter } from "next/router";
+import React, { useMemo } from "react";
 
 function VideoPage() {
-  return (
-    <Container>
-      <VideoSection>
-        <VideoPlayer />
-        <VideoAbout title="제목" nickname="작성자" />
-      </VideoSection>
-      <SubtitleSection>
-        <SubtitleList subtitles={[1, 2, 3, 4, 5, 6, 6, 6, 6, 6]} />
-      </SubtitleSection>
-    </Container>
+  const router = useRouter();
+  const videoIdx = useMemo(() => {
+    if (router.isReady) return Number(router.asPath.split("/video/")[1]);
+    return false;
+  }, [router.isReady]);
+  const { data, error, isLoading } = useQuery(
+    ["video"],
+    () => getVideoById(videoIdx as number),
+    {
+      enabled: !!videoIdx,
+    }
   );
+
+  if (isLoading)
+    return (
+      <Container>
+        <Center>
+          <Spinner isVisible />
+        </Center>
+      </Container>
+    );
+
+  if (error) return <div>오류가 발생했습니다.</div>;
+
+  if (data)
+    return (
+      <Container>
+        <VideoSection>
+          <VideoPlayer videoId={data.link.split("https://youtu.be/")[1]} />
+          <VideoAbout
+            title={data.title}
+            nickname={data.nickname}
+            link={data.link}
+          />
+        </VideoSection>
+        <SubtitleSection>
+          <SubtitleList
+            subtitles={data.subtitleList ?? []}
+            videoIdx={videoIdx as number}
+          />
+        </SubtitleSection>
+      </Container>
+    );
 }
 
 export default VideoPage;
@@ -38,4 +74,10 @@ const SubtitleSection = styled.section`
   width: 40%;
   height: 100%;
   padding-right: 2rem;
+`;
+const Center = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
 `;

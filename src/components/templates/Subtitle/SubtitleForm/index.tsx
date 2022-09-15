@@ -1,12 +1,16 @@
+import { Subtitle } from "apis/video";
 import useSubtitleState from "hooks/states/useSubtitleState";
 import React, { useEffect, useRef } from "react";
 import SubtitleField from "../SubtitleField";
 import SubTitleInput from "../SubtitleInput";
 import * as S from "./style";
 
-function SubtitleForm() {
-  const { formList } = useSubtitleState();
+type SubtitleFormProps = {
+  subtitles: Subtitle[];
+};
 
+function SubtitleForm({ subtitles }: SubtitleFormProps) {
+  const { formList } = useSubtitleState();
   const listRef = useRef<HTMLDivElement>(null);
   const fieldRef = useRef<HTMLDivElement>(null);
 
@@ -22,13 +26,13 @@ function SubtitleForm() {
   return (
     <S.Container>
       <S.SubtitleList ref={listRef}>
-        {formList.map((F) => (
+        {subtitles?.map((F, idx) => (
           <SubtitleField
-            id={F.id}
+            id={F.subtitleIdx}
             timeline={F.timeline}
-            subtitle={F.subtitle}
-            key={F.id}
-            ref={F.id === formList.length ? fieldRef : undefined}
+            subtitle={F.content}
+            key={F.subtitleIdx}
+            ref={idx === formList.length ? fieldRef : undefined}
           />
         ))}
       </S.SubtitleList>

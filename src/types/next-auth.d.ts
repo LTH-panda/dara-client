@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-unused-vars */
 import NextAuth, { DefaultSession } from "next-auth";
 
@@ -5,6 +6,7 @@ declare module "next-auth" {
   interface Session {
     user: {
       jwtToken: string;
+      userIdx: number;
     } & DefaultSession["user"];
   }
 }

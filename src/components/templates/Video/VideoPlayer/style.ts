@@ -5,8 +5,3 @@ export const Container = styled.div`
   height: 31.25rem;
   margin: 0 auto;
 `;
-export const Video = styled.div`
-  width: 100%;
-  height: 100%;
-  background: gray;
-`;

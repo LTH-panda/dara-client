@@ -13,8 +13,13 @@ export const createSubtitle = async (params: CreateSubtitleParams) => {
   return res.data;
 };
 
-export const getSubtitle = async () => {
-  const res = await client.get<{ result: GetSubtitleResult }>("/subtitle/get");
+export const getSubtitle = async (videoIdx: number) => {
+  const res = await client.get<{ result: GetSubtitleResult[] }>(
+    "/subtitle/get",
+    {
+      params: { videoIdx },
+    }
+  );
   return res.data.result;
 };
 
