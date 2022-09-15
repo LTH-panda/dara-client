@@ -90,9 +90,23 @@ export const getVideoById = async (videoIdx: number) => {
   return res.data.result;
 };
 
+export const getVideoCommission = async (videoIdx: number) => {
+  const res = await client.get<{ result: VideoCommission }>("/videos/videos", {
+    params: { videoIdx },
+  });
+  return res.data.result;
+};
+
 export const searchByTitle = async (title: string) => {
   const res = await client.get<{ result: Video[] }>("/videos/search", {
     params: { title },
   });
   return res.data.result;
 };
+
+export interface VideoCommission {
+  videoIdx: number;
+  link: string;
+  title: string;
+  checkRequester: boolean;
+}

@@ -22,6 +22,7 @@ export const TitleSection = styled.div`
   justify-content: space-between;
 `;
 
-export const VideoCardTitle = styled.span`
+export const VideoCardTitle = styled.h1`
+  width: 100%;
   font-size: 0.85rem;
 `;

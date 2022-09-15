@@ -26,7 +26,7 @@ function SubtitleForm({ subtitles }: SubtitleFormProps) {
   return (
     <S.Container>
       <S.SubtitleList ref={listRef}>
-        {subtitles?.map((F, idx) => (
+        {formList.map((F, idx) => (
           <SubtitleField
             id={F.subtitleIdx}
             timeline={F.timeline}

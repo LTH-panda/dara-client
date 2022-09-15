@@ -17,7 +17,7 @@ function HomBanner() {
         <LinkTo href="/video/request">
           <S.BannerButton>신청하기</S.BannerButton>
         </LinkTo>
-        <LinkTo href="/">
+        <LinkTo href="/commission">
           <S.BannerButton>제작하기</S.BannerButton>
         </LinkTo>
       </S.BannerButtonSection>
