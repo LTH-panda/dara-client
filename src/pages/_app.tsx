@@ -5,10 +5,9 @@ import type { AppProps } from "next/app";
 import Head from "next/head";
 import { RecoilRoot } from "recoil";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import { SessionProvider } from "next-auth/react";
 import "../assets/fonts/style.css";
 
-function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
+function MyApp({ Component, pageProps }: AppProps) {
   const queryClient = new QueryClient();
 
   return (
@@ -21,11 +20,11 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
       <QueryClientProvider client={queryClient}>
         <ReactQueryDevtools initialIsOpen={false} />
         <RecoilRoot>
-          <SessionProvider session={session}>
-            <Layout>
-              <Component {...pageProps} />
-            </Layout>
-          </SessionProvider>
+          {/* <SessionProvider session={session}> */}
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+          {/* </SessionProvider> */}
         </RecoilRoot>
       </QueryClientProvider>
     </>

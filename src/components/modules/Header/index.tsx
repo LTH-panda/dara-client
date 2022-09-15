@@ -1,5 +1,4 @@
-import { LinkTo, Logotypo, Spinner } from "components/atoms";
-import { useSession } from "next-auth/react";
+import { LinkTo, Logotypo } from "components/atoms";
 import { useRouter } from "next/router";
 import React from "react";
 import HeaderModal from "../HeaderModal";
@@ -7,7 +6,6 @@ import Search from "../Search";
 import * as S from "./style";
 
 function Header() {
-  const { status } = useSession();
   const router = useRouter();
 
   return (
@@ -25,11 +23,7 @@ function Header() {
             의뢰 영상
           </S.CategoryButton>
         </LinkTo>
-        {status === "loading" ? (
-          <Spinner isVisible />
-        ) : (
-          <HeaderModal name="김지수" email="earthssu113@naver.com" />
-        )}
+        <HeaderModal name="김지수" email="earthssu113@naver.com" />
       </S.Nav>
     </S.Header>
   );
