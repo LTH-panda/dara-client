@@ -2,12 +2,12 @@ import styled from "@emotion/styled";
 import { RequestActions, RequestForm } from "components/templates/Request";
 import React, { useCallback, useRef, useState } from "react";
 
-const categories = ["1", "2", "3", "4"];
+const categories = ["교육", "여행", "스포츠", "게임", "엔터", "기타"];
 
 function VideoRequestPage() {
   const inputLength = useRef<number>(1);
   const [form, setForm] = useState<any[]>([
-    { id: 0, value: "", category: "cate" },
+    { id: 0, value: "", category: "카테고리" },
   ]);
 
   const onChange = useCallback(
@@ -30,7 +30,11 @@ function VideoRequestPage() {
   );
   const onSubmit = useCallback(() => {}, []);
   const onAdd = useCallback(() => {
-    const newInput = { id: inputLength.current, value: "", category: "cate" };
+    const newInput = {
+      id: inputLength.current,
+      value: "",
+      category: "카테고리",
+    };
     inputLength.current += 1;
     setForm([...form, newInput]);
   }, [form]);
@@ -61,6 +65,7 @@ const Container = styled.main`
   max-width: 1600px;
   min-height: 80vh;
   margin: auto;
+  padding-top: 3rem;
 `;
 const Title = styled.h1`
   font-size: 2.25rem;

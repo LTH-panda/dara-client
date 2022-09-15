@@ -10,7 +10,7 @@ type RequestActionsProps = {
 function RequestActions({ onSubmit, onAdd }: RequestActionsProps) {
   return (
     <S.Container>
-      <Button title="test" onClick={onSubmit} />
+      <Button title="신청하기" onClick={onSubmit} />
       <S.CircleButton type="button" onClick={onAdd}>
         <SvgIcon name="plus" />
       </S.CircleButton>

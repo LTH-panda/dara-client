@@ -9,6 +9,7 @@ export const CircleButton = styled.button`
   justify-content: center;
   align-items: center;
   padding: 1rem;
-  background-color: gray;
+  background: #ffffff;
+  border: 1px solid #b3b3b3;
   border-radius: 99999px;
 `;

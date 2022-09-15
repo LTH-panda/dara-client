@@ -1,18 +1,18 @@
-import { setAccessToken } from "apis/@client";
+// import { setAccessToken } from "apis/@client";
 import { Header } from "components/modules";
-import { useSession } from "next-auth/react";
-import React, { useEffect } from "react";
+// import { useSession } from "next-auth/react";
+import React from "react";
 
 type LayoutProps = {
   children: React.ReactNode;
 };
 
 function Layout({ children }: LayoutProps) {
-  const { data, status } = useSession();
+  // const { data, status } = useSession();
 
-  useEffect(() => {
-    if (status === "authenticated") setAccessToken(data.user.jwtToken);
-  }, [status]);
+  // useEffect(() => {
+  //   if (status === "authenticated") setAccessToken(data.user.jwtToken);
+  // }, [status]);
 
   return (
     <>

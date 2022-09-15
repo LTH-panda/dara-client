@@ -1,5 +1,8 @@
+import { useMutation } from "@tanstack/react-query";
+import { deleteSubtitle, updateSubtitle } from "apis/subtitle";
 import { SvgIcon } from "components/atoms";
 import useSubtitleState from "hooks/states/useSubtitleState";
+import { useRouter } from "next/router";
 import React, { useRef, useState } from "react";
 import * as S from "./style";
 
@@ -11,19 +14,28 @@ type SubtitleFieldProps = {
 
 const SubtitleField = React.forwardRef<HTMLDivElement, SubtitleFieldProps>(
   ({ id, timeline, subtitle }, ref) => {
+    const { asPath } = useRouter();
     const { deleteFormList } = useSubtitleState();
     const inputRef = useRef<HTMLDivElement>(null);
     const [focused, setFoucsed] = useState(false);
     const [editable, setEditable] = useState(false);
+    const { mutate: editSubtitle } = useMutation(updateSubtitle);
 
     const onStartEdit = () => {
       setEditable(true);
     };
     const onEndEdit = () => {
+      editSubtitle({
+        userIdx: 11,
+        videoIdx: parseInt(asPath.split("/")[2], 10),
+        subtitleIdx: id,
+        content: inputRef.current?.textContent as string,
+      });
       setEditable(false);
     };
 
-    const onDelete = () => {
+    const onDelete = async () => {
+      await deleteSubtitle(id);
       deleteFormList(id);
     };
 

@@ -1,21 +1,22 @@
+import { confirmSubtitle } from "apis/subtitle";
 import { Subtitle } from "apis/video";
-import { LinkTo } from "components/atoms";
 import { useRouter } from "next/router";
-import React, { useEffect, useMemo, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { useRecoilValue } from "recoil";
-import { videoCurrentTime } from "recoil/video";
+import { videoCurrentSubtitle } from "recoil/video";
 import SubtitleCard from "../SubtitleCard";
 import * as S from "./style";
 
 type SubTitleListProps = {
   subtitles: Subtitle[];
+  videoIdx: number;
 };
 
-function SubtitleList({ subtitles }: SubTitleListProps) {
+function SubtitleList({ subtitles, videoIdx }: SubTitleListProps) {
   const router = useRouter();
-  const currentTime = useRecoilValue(videoCurrentTime);
   const listRef = useRef<HTMLDivElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
+  const currentSubtitle = useRecoilValue(videoCurrentSubtitle);
 
   // if the time of card equals the video current time,
   // scroll to that subtitle card
@@ -27,18 +28,16 @@ function SubtitleList({ subtitles }: SubTitleListProps) {
       });
   }, [listRef.current, cardRef.current]);
 
-  const toGoSubtitle = useMemo(() => {
-    if (router.isReady) return `${router.asPath}/subtitle`;
-    return "";
-  }, [router]);
+  const onConfirm = async () => {
+    await confirmSubtitle({ userIdx: 11, videoIdx });
+    router.push(`${router.asPath}/subtitle`);
+  };
 
   if (!subtitles.length)
     return (
       <S.Container>
         <S.Center>
-          <LinkTo href={toGoSubtitle}>
-            <S.GoSubtitleButton>제작하기</S.GoSubtitleButton>
-          </LinkTo>
+          <S.GoSubtitleButton onClick={onConfirm}>제작하기</S.GoSubtitleButton>
         </S.Center>
       </S.Container>
     );
@@ -49,8 +48,7 @@ function SubtitleList({ subtitles }: SubTitleListProps) {
         <SubtitleCard
           timeline={sub.timeline}
           subtitle={sub.content}
-          focused={sub.timeline === currentTime}
-          ref={sub.timeline === currentTime ? cardRef : undefined}
+          ref={sub.timeline === currentSubtitle ? cardRef : undefined}
           key={sub.subtitleIdx}
         />
       ))}
