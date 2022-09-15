@@ -29,8 +29,8 @@ function SubtitleList({ subtitles, videoIdx }: SubTitleListProps) {
   }, [listRef.current, cardRef.current]);
 
   const onConfirm = async () => {
-    await confirmSubtitle({ userIdx: 11, videoIdx });
-    router.push(`${router.asPath}/subtitle`);
+    // await confirmSubtitle({ userIdx: 11, videoIdx });
+    router.push(`/video/${videoIdx}/subtitle`);
   };
 
   if (!subtitles.length)

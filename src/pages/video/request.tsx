@@ -28,7 +28,6 @@ function VideoRequestPage() {
     },
     [form]
   );
-  const onSubmit = useCallback(() => {}, []);
   const onAdd = useCallback(() => {
     const newInput = {
       id: inputLength.current,
@@ -49,7 +48,7 @@ function VideoRequestPage() {
         onCategory={onCategory}
       />
       <StickyWrapper>
-        <RequestActions onSubmit={onSubmit} onAdd={onAdd} />
+        <RequestActions onAdd={onAdd} />
       </StickyWrapper>
     </Container>
   );

@@ -1,10 +1,7 @@
+import { Subtitle } from "apis/video";
 import { atom } from "recoil";
 
-export interface SubtitleFormList {
-  id: number;
-  timeline: string;
-  subtitle: string;
-}
+export interface SubtitleFormList extends Subtitle {}
 
 export const subtitleFormList = atom<SubtitleFormList[]>({
   key: "subtitleFormList",

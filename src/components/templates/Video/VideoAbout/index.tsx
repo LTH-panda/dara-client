@@ -4,7 +4,7 @@ import * as S from "./style";
 type VideoAboutProps = {
   link: string;
   title: string;
-  nickname: string;
+  nickname?: string;
 };
 
 function VideoAbout({ link, title, nickname }: VideoAboutProps) {
@@ -20,7 +20,7 @@ function VideoAbout({ link, title, nickname }: VideoAboutProps) {
     <S.Container>
       <S.Title>{title}</S.Title>
       <S.RowContainer>
-        <S.Author>자막 작성자 : {nickname}</S.Author>
+        {nickname && <S.Author>자막 작성자 : {nickname}</S.Author>}
         <S.Actions>
           <S.ActionButton type="button">좋아요</S.ActionButton>
           <S.ActionButton type="button">싫어요</S.ActionButton>

@@ -17,7 +17,11 @@ function VideoForm({ title, videoIdx, youtubeVideoId }: VideoFormProps) {
 
   const onSubmit = () => {
     submit({ userIdx: 11, videoIdx });
-    router.replace(`/video/${videoIdx}`);
+    // router.replace(`/video/${videoIdx}`);
+    router.replace({
+      pathname: `/video/${videoIdx}`,
+      query: { type: "commission" },
+    });
   };
 
   return (
